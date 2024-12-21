@@ -88,7 +88,7 @@ const ServerPage = () => {
                 </Typography>
               </AccordionSummary>
               <AccordionDetails className={classes.details}>
-                <TextField
+                {/* <TextField
                   value={item.mapUrl || ''}
                   onChange={(event) => setItem({ ...item, mapUrl: event.target.value })}
                   label={t('mapCustomLabel')}
@@ -97,7 +97,7 @@ const ServerPage = () => {
                   value={item.overlayUrl || ''}
                   onChange={(event) => setItem({ ...item, overlayUrl: event.target.value })}
                   label={t('mapOverlayCustom')}
-                />
+                /> */}
                 <FormControl>
                   <InputLabel>{t('mapDefault')}</InputLabel>
                   <Select
@@ -184,11 +184,11 @@ const ServerPage = () => {
                   onChange={(event) => setItem({ ...item, poiLayer: event.target.value })}
                   label={t('mapPoiLayer')}
                 />
-                <TextField
+                {/* <TextField
                   value={item.announcement || ''}
                   onChange={(event) => setItem({ ...item, announcement: event.target.value })}
                   label={t('serverAnnouncement')}
-                />
+                /> */}
                 <FormGroup>
                   <FormControlLabel
                     control={<Checkbox checked={item.forceSettings} onChange={(event) => setItem({ ...item, forceSettings: event.target.checked })} />}
@@ -197,7 +197,7 @@ const ServerPage = () => {
                 </FormGroup>
               </AccordionDetails>
             </Accordion>
-            <Accordion>
+            {/* <Accordion>
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <Typography variant="subtitle1">
                   {t('sharedLocation')}
@@ -238,8 +238,8 @@ const ServerPage = () => {
                   {t('mapCurrentLocation')}
                 </Button>
               </AccordionDetails>
-            </Accordion>
-            <Accordion>
+            </Accordion> */}
+            {/* <Accordion>
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <Typography variant="subtitle1">
                   {t('sharedPermissions')}
@@ -288,12 +288,12 @@ const ServerPage = () => {
                   showAlerts={false}
                 />
               </AccordionDetails>
-            </Accordion>
-            <EditAttributesAccordion
+            </Accordion> */}
+            {/* <EditAttributesAccordion
               attributes={item.attributes}
               setAttributes={(attributes) => setItem({ ...item, attributes })}
               definitions={{ ...commonUserAttributes, ...commonDeviceAttributes, ...serverAttributes }}
-            />
+            /> */}
           </>
         )}
         <div className={classes.buttons}>

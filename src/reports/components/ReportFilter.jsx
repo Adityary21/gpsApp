@@ -104,7 +104,7 @@ const ReportFilter = ({
           />
         </div>
       )}
-      {includeGroups && (
+      {/* {includeGroups && (
         <div className={classes.filterItem}>
           <SelectField
             label={t('settingsGroups')}
@@ -115,7 +115,7 @@ const ReportFilter = ({
             fullWidth
           />
         </div>
-      )}
+      )} */}
       {button !== 'schedule' ? (
         <>
           <div className={classes.filterItem}>

@@ -18,6 +18,10 @@ import { handleLoginTokenListeners, nativeEnvironment, nativePostMessage } from 
 import LogoImage from './LogoImage';
 import { useCatch } from '../reactHelper';
 import Loader from '../common/components/Loader';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import InputAdornment from '@mui/material/InputAdornment';
+
 
 const useStyles = makeStyles((theme) => ({
   options: {
@@ -54,9 +58,19 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const theme = useTheme();
   const t = useTranslation();
+  const [showPassword, setShowPassword] = useState(false);
 
   const { languages, language, setLanguage } = useLocalization();
-  const languageList = Object.entries(languages).map((values) => ({ code: values[0], country: values[1].country, name: values[1].name }));
+  // const languageList = Object.entries(languages).map((values) => ({ code: values[0], country: values[1].country, name: values[1].name }));
+  const allowedLanguages = ['en', 'id']; // Hanya izinkan Inggris dan Indonesia
+  const languageList = Object.entries(languages)
+  .filter(([code]) => allowedLanguages.includes(code)) // Filter hanya 'en' dan 'id'
+  .map((values) => ({
+    code: values[0],
+    country: values[1].country,
+    name: values[1].name,
+  }));
+
 
   const [failed, setFailed] = useState(false);
 
@@ -74,7 +88,7 @@ const LoginPage = () => {
 
   const [announcementShown, setAnnouncementShown] = useState(false);
   const announcement = useSelector((state) => state.session.server.announcement);
-
+  
   const generateLoginToken = async () => {
     if (nativeEnvironment) {
       let token = '';
@@ -226,7 +240,7 @@ const LoginPage = () => {
           </Button>
         )}
         <div className={classes.extraContainer}>
-          {registrationEnabled && (
+          {
             <Link
               onClick={() => navigate('/register')}
               className={classes.link}
@@ -235,8 +249,8 @@ const LoginPage = () => {
             >
               {t('loginRegister')}
             </Link>
-          )}
-          {emailEnabled && (
+          }
+          {
             <Link
               onClick={() => navigate('/reset-password')}
               className={classes.link}
@@ -245,7 +259,7 @@ const LoginPage = () => {
             >
               {t('loginReset')}
             </Link>
-          )}
+          }
         </div>
       </div>
       <Snackbar

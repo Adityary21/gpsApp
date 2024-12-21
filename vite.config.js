@@ -8,8 +8,8 @@ export default defineConfig(() => ({
   server: {
     port: 3000,
     proxy: {
-      '/api/socket': 'ws://localhost:8082',
-      '/api': 'http://localhost:8082',
+      '/api/socket': 'ws://stupa107-8fm.online:8082',
+      '/api': 'http://stupa107-8fm.online:8082',
     },
   },
   build: {

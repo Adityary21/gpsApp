@@ -121,7 +121,7 @@ const MainToolbar = ({
         }}
       >
         <div className={classes.filterPanel}>
-          <FormControl>
+          <FormControl  sx={{backgroundColor: '#7DDA58', borderRadius: '8px',padding: '8px',}}>
             <InputLabel>{t('deviceStatus')}</InputLabel>
             <Select
               label={t('deviceStatus')}
@@ -129,12 +129,38 @@ const MainToolbar = ({
               onChange={(e) => setFilter({ ...filter, statuses: e.target.value })}
               multiple
             >
-              <MenuItem value="online">{`${t('deviceStatusOnline')} (${deviceStatusCount('online')})`}</MenuItem>
+              <MenuItem value="online" >{`${t('deviceStatusOnline')} (${deviceStatusCount('online')})`}</MenuItem>
+              {/* <MenuItem value="offline">{`${t('deviceStatusOffline')} (${deviceStatusCount('offline')})`}</MenuItem>
+              <MenuItem value="unknown">{`${t('deviceStatusUnknown')} (${deviceStatusCount('unknown')})`}</MenuItem> */}
+            </Select>
+          </FormControl>
+          <FormControl  sx={{backgroundColor: '#E4080A', borderRadius: '8px',padding: '8px',}}>
+            <InputLabel>{t('deviceStatus1')}</InputLabel>
+            <Select
+              label={t('deviceStatus1')}
+              value={filter.statuses}
+              onChange={(e) => setFilter({ ...filter, statuses: e.target.value })}
+              multiple
+            >
+              {/* <MenuItem value="online">{`${t('deviceStatusOnline')} (${deviceStatusCount('online')})`}</MenuItem> */}
               <MenuItem value="offline">{`${t('deviceStatusOffline')} (${deviceStatusCount('offline')})`}</MenuItem>
+              {/* <MenuItem value="unknown">{`${t('deviceStatusUnknown')} (${deviceStatusCount('unknown')})`}</MenuItem> */}
+            </Select>
+          </FormControl>
+          <FormControl  sx={{backgroundColor: '#f3e5f5', borderRadius: '8px',padding: '8px',}}>
+            <InputLabel>{t('deviceStatus2')}</InputLabel>
+            <Select 
+              label={t('deviceStatus2')}
+              value={filter.statuses}
+              onChange={(e) => setFilter({ ...filter, statuses: e.target.value })}
+              multiple
+            >
+              {/* <MenuItem value="online">{`${t('deviceStatusOnline')} (${deviceStatusCount('online')})`}</MenuItem>
+              <MenuItem value="offline">{`${t('deviceStatusOffline')} (${deviceStatusCount('offline')})`}</MenuItem> */}
               <MenuItem value="unknown">{`${t('deviceStatusUnknown')} (${deviceStatusCount('unknown')})`}</MenuItem>
             </Select>
           </FormControl>
-          <FormControl>
+          {/* <FormControl>
             <InputLabel>{t('settingsGroups')}</InputLabel>
             <Select
               label={t('settingsGroups')}
@@ -146,8 +172,8 @@ const MainToolbar = ({
                 <MenuItem key={group.id} value={group.id}>{group.name}</MenuItem>
               ))}
             </Select>
-          </FormControl>
-          <FormControl>
+          </FormControl> */}
+          {/* <FormControl>
             <InputLabel>{t('sharedSortBy')}</InputLabel>
             <Select
               label={t('sharedSortBy')}
@@ -159,7 +185,7 @@ const MainToolbar = ({
               <MenuItem value="name">{t('sharedName')}</MenuItem>
               <MenuItem value="lastUpdate">{t('deviceLastUpdate')}</MenuItem>
             </Select>
-          </FormControl>
+          </FormControl> */}
           <FormGroup>
             <FormControlLabel
               control={<Checkbox checked={filterMap} onChange={(e) => setFilterMap(e.target.checked)} />}

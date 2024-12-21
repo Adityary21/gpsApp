@@ -69,11 +69,12 @@ const DevicesPage = () => {
           <TableRow>
             <TableCell>{t('sharedName')}</TableCell>
             <TableCell>{t('deviceIdentifier')}</TableCell>
-            <TableCell>{t('groupParent')}</TableCell>
+            {/* <TableCell>{t('groupParent')}</TableCell> */}
             <TableCell>{t('sharedPhone')}</TableCell>
             <TableCell>{t('deviceModel')}</TableCell>
             <TableCell>{t('deviceContact')}</TableCell>
-            <TableCell>{t('userExpirationTime')}</TableCell>
+            <TableCell>{t('deviceCategory')}</TableCell>
+            {/* <TableCell>{t('userExpirationTime')}</TableCell> */}
             {manager && <TableCell>{t('settingsUsers')}</TableCell>}
             <TableCell className={classes.columnAction} />
           </TableRow>
@@ -83,11 +84,12 @@ const DevicesPage = () => {
             <TableRow key={item.id}>
               <TableCell>{item.name}</TableCell>
               <TableCell>{item.uniqueId}</TableCell>
-              <TableCell>{item.groupId ? groups[item.groupId]?.name : null}</TableCell>
+              {/* <TableCell>{item.groupId ? groups[item.groupId]?.name : null}</TableCell> */}
               <TableCell>{item.phone}</TableCell>
               <TableCell>{item.model}</TableCell>
               <TableCell>{item.contact}</TableCell>
-              <TableCell>{formatTime(item.expirationTime, 'date')}</TableCell>
+              <TableCell>{item.category}</TableCell>
+              {/* <TableCell>{formatTime(item.expirationTime, 'date')}</TableCell> */}
               {manager && <TableCell><DeviceUsersValue deviceId={item.id} /></TableCell>}
               <TableCell className={classes.columnAction} padding="none">
                 <CollectionActions

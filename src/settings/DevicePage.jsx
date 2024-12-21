@@ -83,9 +83,34 @@ const DevicePage = () => {
                 helperText={t('deviceIdentifierHelp')}
                 disabled={Boolean(uniqueId)}
               />
+               <TextField
+                value={item.phone || ''}
+                onChange={(event) => setItem({ ...item, phone: event.target.value })}
+                label={t('sharedPhone')}
+              />
+              <TextField
+                value={item.model || ''}
+                onChange={(event) => setItem({ ...item, model: event.target.value })}
+                label={t('deviceModel')}
+              />
+              <TextField
+                value={item.contact || ''}
+                onChange={(event) => setItem({ ...item, contact: event.target.value })}
+                label={t('deviceContact')}
+              />
+              <SelectField
+                value={item.category || 'default'}
+                onChange={(event) => setItem({ ...item, category: event.target.value })}
+                data={deviceCategories.map((category) => ({
+                  id: category,
+                  name: t(`category${category.replace(/^\w/, (c) => c.toUpperCase())}`),
+                }))}
+                label={t('deviceCategory')}
+              />
+
             </AccordionDetails>
           </Accordion>
-          <Accordion>
+          {/* <Accordion>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <Typography variant="subtitle1">
                 {t('sharedExtra')}
@@ -145,8 +170,8 @@ const DevicePage = () => {
                 disabled={!admin}
               />
             </AccordionDetails>
-          </Accordion>
-          {item.id && (
+          </Accordion> */}
+          {/* {item.id && (
             <Accordion>
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <Typography variant="subtitle1">
@@ -169,7 +194,7 @@ const DevicePage = () => {
             attributes={item.attributes}
             setAttributes={(attributes) => setItem({ ...item, attributes })}
             definitions={{ ...commonDeviceAttributes, ...deviceAttributes }}
-          />
+          /> */}
         </>
       )}
     </EditItemView>

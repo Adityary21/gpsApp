@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     height: '100%',
+    
   },
   sidebar: {
     display: 'flex',

@@ -63,6 +63,7 @@ const UserPage = () => {
 
   const [deleteEmail, setDeleteEmail] = useState();
   const [deleteFailed, setDeleteFailed] = useState(false);
+  
 
   const handleDelete = useCatch(async () => {
     if (deleteEmail === currentUser.email) {
@@ -142,13 +143,13 @@ const UserPage = () => {
                 label={t('userEmail')}
                 disabled={fixedEmail && item.id === currentUser.id}
               />
-              {!openIdForced && (
+              {/* {!openIdForced && (
                 <TextField
                   type="password"
                   onChange={(e) => setItem({ ...item, password: e.target.value })}
                   label={t('userPassword')}
                 />
-              )}
+              )} */}
               {totpEnable && (
                 <FormControl>
                   <InputLabel>{t('loginTotpKey')}</InputLabel>
@@ -256,14 +257,14 @@ const UserPage = () => {
                   <MenuItem value="impGal">{t('sharedImpGallon')}</MenuItem>
                 </Select>
               </FormControl>
-              <SelectField
+              {/* <SelectField
                 value={item.attributes && item.attributes.timezone}
                 onChange={(e) => setItem({ ...item, attributes: { ...item.attributes, timezone: e.target.value } })}
                 endpoint="/api/server/timezones"
                 keyGetter={(it) => it}
                 titleGetter={(it) => it}
                 label={t('sharedTimezone')}
-              />
+              /> */}
               <TextField
                 value={item.poiLayer || ''}
                 onChange={(e) => setItem({ ...item, poiLayer: e.target.value })}
@@ -313,7 +314,7 @@ const UserPage = () => {
               </Button>
             </AccordionDetails>
           </Accordion>
-          <Accordion>
+          {/* <Accordion>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <Typography variant="subtitle1">
                 {t('sharedPermissions')}
@@ -383,14 +384,14 @@ const UserPage = () => {
                 />
               </FormGroup>
             </AccordionDetails>
-          </Accordion>
-          <EditAttributesAccordion
+          </Accordion> */}
+          {/* <EditAttributesAccordion
             attribute={attribute}
             attributes={item.attributes}
             setAttributes={(attributes) => setItem({ ...item, attributes })}
             definitions={{ ...commonUserAttributes, ...userAttributes }}
             focusAttribute={attribute}
-          />
+          /> */}
           {registrationEnabled && item.id === currentUser.id && !manager && (
             <Accordion>
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
